@@ -1,8 +1,5 @@
 const admin = require('firebase-admin');
 const firebaseInit = require('../config/firebaseInit');
-const { deleteEntry } = require('./dailyJournal');
-const { query } = require('express');
-// Firebase app init
 
 
 const db = admin.firestore();
@@ -18,11 +15,10 @@ module.exports = {
     
             await docRef.set(data, {merge: true} );
     
-            // const result = await docRef.get();
     
             res.status(201).json({
                 message: 'Successfully created!',
-                // data: result
+
             })
         } 
         

@@ -1,6 +1,5 @@
 const admin = require('firebase-admin');
 const firebaseInit = require('../config/firebaseInit')
-// Firebase app init
 
 
 const db = admin.firestore();
@@ -16,11 +15,9 @@ module.exports = {
     
             await docRef.set(data, {merge: true});
     
-            // const result = await docRef.get();
     
             res.status(201).json({
                 message: 'Successfully created!',
-                // data: result
             })
         } catch(err) {
             return res.status(400).json('Opps! Something went wrong!', err.message)
